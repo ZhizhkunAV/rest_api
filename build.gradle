@@ -1,16 +1,55 @@
 plugins {
     id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 repositories {
     mavenCentral()
 }
 
+def restAssuredVersion = "5.4.0",
+    allureVersion = "2.21.0"
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+}
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+}
+
+
 dependencies {
     testImplementation(
             'io.rest-assured:rest-assured:5.3.1',
             "org.junit.jupiter:junit-jupiter:5.10.0",
-            'org.slf4j:slf4j-simple:2.0.7'
+            'com.fasterxml.jackson.core:jackson-core:2.0.2',
+            'com.fasterxml.jackson.core:jackson-databind:2.17.1',
+            'org.slf4j:slf4j-simple:2.0.7',
+            "org.assertj:assertj-core:3.6.1",
+            "io.rest-assured:json-schema-validator:$restAssuredVersion",
+            "io.qameta.allure:allure-rest-assured:$allureVersion"
     )
 }
 
@@ -22,5 +61,13 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
+    }
+
+    compileJava {
+        options.encoding = 'UTF-8'
+    }
+
+    compileTestJava {
+        options.encoding = 'UTF-8'
     }
 }
