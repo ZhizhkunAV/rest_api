@@ -4,9 +4,6 @@ plugins {
     id "io.freefair.lombok" version "6.0.0-m2"
 }
 
-group = 'com.lorminel'
-version = '1.0-SNAPSHOT'
-
 repositories {
     mavenCentral()
 }
