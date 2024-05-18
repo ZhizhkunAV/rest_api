@@ -8,18 +8,16 @@ repositories {
     mavenCentral()
 }
 
-def restAssuredVersion = "5.4.0",
-    allureVersion = "2.21.0"
-
 allure {
     report {
-        version.set(allureVersion)
+        version.set("2.27.0")
     }
-    adapter {
-        aspectjWeaver.set(true)
+
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
         frameworks {
-            junit5 {
-                adapterVersion.set(allureVersion)
+            junit5 { //название фреймворка
+                adapterVersion.set("2.27.0") //версия интеграции фреймворка и Allure
             }
         }
     }
@@ -27,11 +25,11 @@ allure {
 
 dependencies {
     testImplementation(
-            "io.rest-assured:rest-assured:$restAssuredVersion",
-            "io.rest-assured:json-schema-validator:$restAssuredVersion",
-            "io.qameta.allure:allure-rest-assured:$allureVersion",
-            "org.junit.jupiter:junit-jupiter:5.10.2",
-            "org.slf4j:slf4j-simple:2.0.12",
+            "io.rest-assured:rest-assured:5.3.1",
+            "io.rest-assured:json-schema-validator:5.3.1",
+            "io.qameta.allure:allure-rest-assured:2.21.0",
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            "org.slf4j:slf4j-simple:2.0.7",
             "org.assertj:assertj-core:3.6.1"
     )
 }

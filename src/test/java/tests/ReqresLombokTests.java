@@ -5,10 +5,8 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import models.lombok.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
-
-import java.lang.reflect.Type;
+import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -18,19 +16,18 @@ import static scecifications.SpecForAllTests.*;
 
 
 @DisplayName("Тесты по тестированию платформы https://reqres.in/")
-public class ReqresLombokTests  extends TestBase {
+public class ReqresLombokTests extends TestBase {
 
     @DisplayName("Метод Get - наличие email и успешность получения верного кода ответа(код 200)")
     @Severity(SeverityLevel.BLOCKER)
     @Tag("alls")
     @Owner("ZhizhkunAV")
     @Test
-
     void checkEmailAndStatusCodePositiveTest() {
         GetResponseLombok responsetwo =
                 step("Отправка  Get запроса", () ->
                         given(getrequestspecification)
-                                .get("")
+                                .get("https://reqres.in/api/users/2")
                                 .then()
                                 .spec(getresponsespecification)
                                 .extract().as(GetResponseLombok.class)
@@ -44,7 +41,6 @@ public class ReqresLombokTests  extends TestBase {
                 }
         );
     }
-
 
     @DisplayName("Метод Put - update уже имеющейся сущности(name,job) и успешность получения верного кода ответа(код 200)")
     @Tag("alls")

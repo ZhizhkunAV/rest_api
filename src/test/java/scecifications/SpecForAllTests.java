@@ -15,12 +15,9 @@ import static io.restassured.filter.log.LogDetail.STATUS;
 
 public class SpecForAllTests {
     public static RequestSpecification getrequestspecification = with()
-            .filter(new AllureRestAssured())
+            .filter(withCustomTemplates())
             .log().uri()
-            .log().body()
-            .log().headers()
-            .contentType(JSON)
-            .basePath("/api/user/2");
+            .log().headers();
 
     public static ResponseSpecification getresponsespecification = new ResponseSpecBuilder()
             .expectStatusCode(200)
@@ -30,7 +27,7 @@ public class SpecForAllTests {
 
 
     public static RequestSpecification putrequestspecification = with()
-            .filter(new AllureRestAssured())
+            .filter(withCustomTemplates())
             .contentType(JSON)
             .log().uri()
             .log().headers()
@@ -44,7 +41,7 @@ public class SpecForAllTests {
             .build();
 
     public static RequestSpecification postrequestspecification = with()
-            .filter(new AllureRestAssured())
+            .filter(withCustomTemplates())
             .contentType(JSON)
             .log().uri()
             .log().headers()
@@ -58,7 +55,7 @@ public class SpecForAllTests {
             .build();
 
     public static RequestSpecification delrequestspecification = with()
-            .filter(new AllureRestAssured())
+            .filter(withCustomTemplates())
             .log().uri()
             .log().headers()
             .basePath("/api/user/2");
@@ -71,7 +68,7 @@ public class SpecForAllTests {
             .build();
 
     public static RequestSpecification twopostrequestspecification = with()
-            .filter(new AllureRestAssured())
+            .filter(withCustomTemplates())
             .contentType(JSON)
             .log().uri()
             .log().headers()
