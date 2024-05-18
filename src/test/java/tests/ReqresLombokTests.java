@@ -23,8 +23,8 @@ public class ReqresLombokTests  extends TestBase {
     @DisplayName("Метод Get - наличие email и успешность получения верного кода ответа(код 200)")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
-    @Tag("all")
     @Test
+
     void checkEmailAndStatusCodePositiveTest() {
         GetResponseLombok responsetwo =
                 step("Отправка  Get запроса", () ->
@@ -32,7 +32,7 @@ public class ReqresLombokTests  extends TestBase {
                                 .get("")
                                 .then()
                                 .spec(getresponsespecification)
-                                .extract().as((Type) GetResponseLombok.class)
+                                .and().extract().as(GetResponseLombok.class)
                 );
 
         step("Проверка полученного ответа на наличие определенных данных", () -> {
@@ -44,10 +44,10 @@ public class ReqresLombokTests  extends TestBase {
         );
     }
 
+
     @DisplayName("Метод Put - update уже имеющейся сущности(name,job) и успешность получения верного кода ответа(код 200)")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
-    @Tag("all")
     @Test
     void successfulLoginTest() {
         PutRequestLombok requestLombok = new PutRequestLombok();
@@ -78,7 +78,6 @@ public class ReqresLombokTests  extends TestBase {
     @DisplayName("Метод Post - создание нового пользователя(name,job) и успешность получения верного кода ответа(код 200)")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
-    @Tag("all")
     @Test
     void successfulCreatedUserTest() {
         PostRequestLombok postRequestLombok = new PostRequestLombok();
@@ -109,7 +108,6 @@ public class ReqresLombokTests  extends TestBase {
     @DisplayName("Метод Delete - удаление пользователя и успешность получения верного кода ответа(код 204)")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
-    @Tag("all")
     @Test
     void deleteUserAndStatusCodeTest() {
         step("Отправка  Post запроса", () ->
@@ -123,7 +121,6 @@ public class ReqresLombokTests  extends TestBase {
     @DisplayName("Метод Post - не валюдную авторизацию пользователя и успешность получения верного кода ответа(код 400)")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
-    @Tag("all")
     @Test
     void loginUserUnsuccessfulTest() {
         TwoPostRequestLombok twopostRequestLombok = new TwoPostRequestLombok();
