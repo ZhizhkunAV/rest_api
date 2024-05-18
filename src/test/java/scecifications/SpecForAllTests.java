@@ -16,7 +16,6 @@ public class SpecForAllTests {
             .log().body()
             .log().headers()
             .contentType(JSON)
-            .baseUri("https://reqres.in")
             .basePath("/api/user/2");
 
     public static ResponseSpecification getresponsespecification = new ResponseSpecBuilder()
@@ -31,7 +30,6 @@ public class SpecForAllTests {
             .contentType(JSON)
             .log().uri()
             .log().headers()
-            .baseUri("https://reqres.in")
             .basePath("/api/user/2");
 
 
@@ -46,7 +44,6 @@ public class SpecForAllTests {
             .contentType(JSON)
             .log().uri()
             .log().headers()
-            .baseUri("https://reqres.in")
             .basePath("/api/user");
 
     public static ResponseSpecification postresponsespecification = new ResponseSpecBuilder()
@@ -60,7 +57,6 @@ public class SpecForAllTests {
 
             .log().uri()
             .log().headers()
-            .baseUri("https://reqres.in")
             .basePath("/api/user/2");
 
     public static ResponseSpecification delresponsespecification = new ResponseSpecBuilder()
@@ -74,7 +70,6 @@ public class SpecForAllTests {
             .contentType(JSON)
             .log().uri()
             .log().headers()
-            .baseUri("https://reqres.in")
             .basePath("/api/login");
 
     public static ResponseSpecification twopostresponsespecification = new ResponseSpecBuilder()

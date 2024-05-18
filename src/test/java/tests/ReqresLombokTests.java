@@ -18,7 +18,7 @@ import static scecifications.SpecForAllTests.*;
 
 
 @DisplayName("Тесты по тестированию платформы https://reqres.in/")
-public class ReqresLombokTests {
+public class ReqresLombokTests  extends TestBase {
 
     @DisplayName("Метод Get - наличие email и успешность получения верного кода ответа(код 200)")
     @Severity(SeverityLevel.BLOCKER)
