@@ -5,17 +5,14 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.filter.log.LogDetail.*;
 import static io.restassured.http.ContentType.JSON;
-import static io.restassured.filter.log.LogDetail.BODY;
-import static io.restassured.filter.log.LogDetail.STATUS;
 
 
 public class SpecForAllTests {
     public static RequestSpecification getrequestspecification = with()
-            .filter(withCustomTemplates())
+            .filter(new AllureRestAssured())
             .log().uri()
             .log().headers();
 
@@ -27,7 +24,7 @@ public class SpecForAllTests {
 
 
     public static RequestSpecification putrequestspecification = with()
-            .filter(withCustomTemplates())
+            .filter(new AllureRestAssured())
             .contentType(JSON)
             .log().uri()
             .log().headers()
@@ -41,7 +38,7 @@ public class SpecForAllTests {
             .build();
 
     public static RequestSpecification postrequestspecification = with()
-            .filter(withCustomTemplates())
+            .filter(new AllureRestAssured())
             .contentType(JSON)
             .log().uri()
             .log().headers()
@@ -55,7 +52,7 @@ public class SpecForAllTests {
             .build();
 
     public static RequestSpecification delrequestspecification = with()
-            .filter(withCustomTemplates())
+            .filter(new AllureRestAssured())
             .log().uri()
             .log().headers()
             .basePath("/api/user/2");
@@ -68,7 +65,7 @@ public class SpecForAllTests {
             .build();
 
     public static RequestSpecification twopostrequestspecification = with()
-            .filter(withCustomTemplates())
+            .filter(new AllureRestAssured())
             .contentType(JSON)
             .log().uri()
             .log().headers()
