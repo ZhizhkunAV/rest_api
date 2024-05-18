@@ -1,8 +1,12 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import models.lombok.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
 
 import java.lang.reflect.Type;
 
@@ -17,6 +21,9 @@ import static scecifications.SpecForAllTests.*;
 public class ReqresLombokTests {
 
     @DisplayName("Метод Get - наличие email и успешность получения верного кода ответа(код 200)")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
+    @Tag("all")
     @Test
     void checkEmailAndStatusCodePositiveTest() {
         GetResponseLombok responsetwo =
@@ -38,6 +45,9 @@ public class ReqresLombokTests {
     }
 
     @DisplayName("Метод Put - update уже имеющейся сущности(name,job) и успешность получения верного кода ответа(код 200)")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
+    @Tag("all")
     @Test
     void successfulLoginTest() {
         PutRequestLombok requestLombok = new PutRequestLombok();
@@ -66,6 +76,9 @@ public class ReqresLombokTests {
     }
 
     @DisplayName("Метод Post - создание нового пользователя(name,job) и успешность получения верного кода ответа(код 200)")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
+    @Tag("all")
     @Test
     void successfulCreatedUserTest() {
         PostRequestLombok postRequestLombok = new PostRequestLombok();
@@ -94,6 +107,9 @@ public class ReqresLombokTests {
     }
 
     @DisplayName("Метод Delete - удаление пользователя и успешность получения верного кода ответа(код 204)")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
+    @Tag("all")
     @Test
     void deleteUserAndStatusCodeTest() {
         step("Отправка  Post запроса", () ->
@@ -105,6 +121,9 @@ public class ReqresLombokTests {
     }
 
     @DisplayName("Метод Post - не валюдную авторизацию пользователя и успешность получения верного кода ответа(код 400)")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
+    @Tag("all")
     @Test
     void loginUserUnsuccessfulTest() {
         TwoPostRequestLombok twopostRequestLombok = new TwoPostRequestLombok();

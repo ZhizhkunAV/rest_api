@@ -54,6 +54,7 @@ dependencies {
 }
 
 tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -62,12 +63,19 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+}
 
-    compileJava {
-        options.encoding = 'UTF-8'
-    }
 
-    compileTestJava {
-        options.encoding = 'UTF-8'
+task demoqa_all_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("all")
     }
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
