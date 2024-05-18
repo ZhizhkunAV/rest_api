@@ -8,6 +8,9 @@ import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.filter.log.LogDetail.*;
 import static io.restassured.http.ContentType.JSON;
+import static io.restassured.filter.log.LogDetail.BODY;
+import static io.restassured.filter.log.LogDetail.STATUS;
+
 
 public class SpecForAllTests {
     public static RequestSpecification getrequestspecification = with()
