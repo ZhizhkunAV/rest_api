@@ -32,7 +32,7 @@ public class ReqresLombokTests  extends TestBase {
                                 .get("")
                                 .then()
                                 .spec(getresponsespecification)
-                                .and().extract().as(GetResponseLombok.class)
+                                .extract().as(GetResponseLombok.class)
                 );
 
         step("Проверка полученного ответа на наличие определенных данных", () -> {
