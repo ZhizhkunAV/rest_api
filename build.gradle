@@ -1,15 +1,18 @@
 plugins {
-    id 'java-library'
+    id 'java'
     id 'io.qameta.allure' version '2.11.2'
     id "io.freefair.lombok" version "6.0.0-m2"
 }
+
+group = 'com.lorminel'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-def restAssuredVersion = "5.4.0",
-    allureVersion = "2.21.0"
+def allureVersion = "2.27.0",
+    restAssuredVersion = "5.3.1"
 
 allure {
     report {
@@ -24,37 +27,19 @@ allure {
         }
     }
 }
-
-allure {
-    report {
-        version.set(allureVersion)
-    }
-    adapter {
-        aspectjWeaver.set(true)
-        frameworks {
-            junit5 {
-                adapterVersion.set(allureVersion)
-            }
-        }
-    }
-}
-
 
 dependencies {
     testImplementation(
-            'io.rest-assured:rest-assured:5.3.1',
-            "org.junit.jupiter:junit-jupiter:5.10.0",
-            'com.fasterxml.jackson.core:jackson-core:2.0.2',
-            'com.fasterxml.jackson.core:jackson-databind:2.17.1',
-            'org.slf4j:slf4j-simple:2.0.7',
-            "org.assertj:assertj-core:3.6.1",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
             "io.rest-assured:json-schema-validator:$restAssuredVersion",
-            "io.qameta.allure:allure-rest-assured:$allureVersion"
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            'org.slf4j:slf4j-simple:2.0.7',
+            "org.assertj:assertj-core:3.6.1"
     )
 }
 
 tasks.withType(Test) {
-    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -63,19 +48,4 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
-}
-
-
-task demoqa_all_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("all")
-    }
-}
-
-compileJava {
-    options.encoding = 'UTF-8'
-}
-
-compileTestJava {
-    options.encoding = 'UTF-8'
 }
