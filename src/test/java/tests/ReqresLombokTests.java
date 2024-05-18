@@ -22,6 +22,7 @@ public class ReqresLombokTests  extends TestBase {
 
     @DisplayName("Метод Get - наличие email и успешность получения верного кода ответа(код 200)")
     @Severity(SeverityLevel.BLOCKER)
+    @Tag("alls")
     @Owner("ZhizhkunAV")
     @Test
 
@@ -46,6 +47,7 @@ public class ReqresLombokTests  extends TestBase {
 
 
     @DisplayName("Метод Put - update уже имеющейся сущности(name,job) и успешность получения верного кода ответа(код 200)")
+    @Tag("alls")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
     @Test
@@ -76,6 +78,7 @@ public class ReqresLombokTests  extends TestBase {
     }
 
     @DisplayName("Метод Post - создание нового пользователя(name,job) и успешность получения верного кода ответа(код 200)")
+    @Tag("alls")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
     @Test
@@ -106,6 +109,7 @@ public class ReqresLombokTests  extends TestBase {
     }
 
     @DisplayName("Метод Delete - удаление пользователя и успешность получения верного кода ответа(код 204)")
+    @Tag("alls")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
     @Test
@@ -119,6 +123,7 @@ public class ReqresLombokTests  extends TestBase {
     }
 
     @DisplayName("Метод Post - не валюдную авторизацию пользователя и успешность получения верного кода ответа(код 400)")
+    @Tag("alls")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
     @Test
