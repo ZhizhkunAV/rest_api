@@ -2,9 +2,7 @@ package models.lombok;
 
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
-public class TwoPostRequestLombok {
+public class LoginUnsuccessfulRequestLombok {
     String email;
 }

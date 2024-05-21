@@ -5,10 +5,9 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class PutResponseLombok {
+public class CreateUserResponseLombok {
     public String name;
     public String job;
-    public Date updatedAt;
-    public Integer id;
-
+    public String id;
+    public Date createdAt;
 }
