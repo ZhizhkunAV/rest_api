@@ -5,8 +5,10 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class CheckEmailResponseLombok {
-    private UserData data;
+public class Udpade {
+    public String name;
+    public String job;
     public Date updatedAt;
-    private SupportData support;
+    public Integer id;
+
 }

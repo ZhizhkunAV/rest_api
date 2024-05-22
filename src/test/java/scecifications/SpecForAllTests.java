@@ -11,32 +11,32 @@ import static io.restassured.http.ContentType.JSON;
 
 
 public class SpecForAllTests {
-    public static RequestSpecification checkemeilrequestspecification = with()
+    public static RequestSpecification requestSpecifications = with()
             .filter(withCustomTemplates())
             .log().all();
 
-    public static RequestSpecification requestspecification = with()
+    public static RequestSpecification requestSpecWithoutBody = with()
             .filter(withCustomTemplates())
             .contentType(JSON)
             .log().all();
 
-    public static ResponseSpecification checkcode200responsespecification = new ResponseSpecBuilder()
+    public static ResponseSpecification code200ResponseSpecification = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .log(ALL)
             .build();
 
-    public static ResponseSpecification responsespecification201code = new ResponseSpecBuilder()
+    public static ResponseSpecification code201responseSpecification = new ResponseSpecBuilder()
             .expectStatusCode(201)
             .log(ALL)
             .build();
 
 
-    public static ResponseSpecification checkresponsespecification204code = new ResponseSpecBuilder()
+    public static ResponseSpecification code204responSespecification = new ResponseSpecBuilder()
             .expectStatusCode(204)
             .log(ALL)
             .build();
 
-    public static ResponseSpecification checkresponsespecification400code = new ResponseSpecBuilder()
+    public static ResponseSpecification code400ResponseSpecification = new ResponseSpecBuilder()
             .expectStatusCode(400)
             .log(ALL)
             .build();

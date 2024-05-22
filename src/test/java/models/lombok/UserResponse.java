@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class CreateUserResponseLombok {
+public class UserResponse {
     public String name;
     public String job;
     public String id;

@@ -16,7 +16,7 @@ import static scecifications.SpecForAllTests.*;
 
 
 @DisplayName("Тесты по тестированию платформы https://reqres.in/")
-public class ReqresLombokTests extends TestBase {
+public class ReqresWithLombokTests extends TestBase {
 
     @DisplayName("Метод Get - наличие email и успешность получения верного кода ответа(код 200)")
     @Severity(SeverityLevel.BLOCKER)
@@ -24,20 +24,20 @@ public class ReqresLombokTests extends TestBase {
     @Owner("ZhizhkunAV")
     @Test
     void checkEmailAndStatusCodePositiveTest() {
-        CheckEmailResponseLombok checkresponse =
+        UserModel response =
                 step("Отправка  Get запроса", () ->
-                        given(checkemeilrequestspecification)
+                        given(requestSpecifications)
                                 .get("/users/2")
                                 .then()
-                                .spec(checkcode200responsespecification)
-                                .extract().as(CheckEmailResponseLombok.class)
+                                .spec(code200ResponseSpecification)
+                                .extract().as(UserModel.class)
                 );
 
         step("Проверка полученного ответа на наличие определенных данных", () -> {
 
-                    assertThat(checkresponse.getData().getEmail()).isEqualTo("janet.weaver@reqres.in");
-                    assertThat(checkresponse.getData().getFirstName()).isEqualTo("Janet");
-                    assertThat(checkresponse.getData().getLastName()).isEqualTo("Weaver");
+                    assertThat(response.getData().getEmail()).isEqualTo("janet.weaver@reqres.in");
+                    assertThat(response.getData().getFirstName()).isEqualTo("Janet");
+                    assertThat(response.getData().getLastName()).isEqualTo("Weaver");
                 }
         );
     }
@@ -49,19 +49,19 @@ public class ReqresLombokTests extends TestBase {
     @Owner("ZhizhkunAV")
     @Test
     void successfulLoginTest() {
-        UdpadeLombok requestLombok = new UdpadeLombok();
-        requestLombok.setName("morpheus");
-        requestLombok.setJob("zion resident");
+        Udpade update = new Udpade();
+        update.setName("morpheus");
+        update.setJob("zion resident");
 
-        UdpadeLombok response =
+        Udpade response =
                 step("Отправка  Put запроса", () ->
-                        given(requestspecification)
-                                .body(requestLombok)
+                        given(requestSpecWithoutBody)
+                                .body(update)
                                 .when()
                                 .put("/user/2")
                                 .then()
-                                .spec(checkcode200responsespecification)
-                                .extract().as(UdpadeLombok.class)
+                                .spec(code200ResponseSpecification)
+                                .extract().as(Udpade.class)
                 );
 
         step("Проверка полученного ответа на наличие определенных данных - Name и Job", () -> {
@@ -80,19 +80,19 @@ public class ReqresLombokTests extends TestBase {
     @Owner("ZhizhkunAV")
     @Test
     void successfulCreatedUserTest() {
-        CreateUserRequestLombok createuserrequestlombok = new CreateUserRequestLombok();
-        createuserrequestlombok.setName("morpheus");
-        createuserrequestlombok.setJob("leader");
+        UserRequest userRequest = new UserRequest();
+        userRequest.setName("morpheus");
+        userRequest.setJob("leader");
 
-        CreateUserResponseLombok response =
+        UserResponse response =
                 step("Отправка  Post запроса", () ->
-                        given(requestspecification)
-                                .body(createuserrequestlombok)
+                        given(requestSpecWithoutBody)
+                                .body(userRequest)
                                 .when()
                                 .post("/user")
                                 .then()
-                                .spec(responsespecification201code)
-                                .extract().as(CreateUserResponseLombok.class)
+                                .spec(code201responseSpecification)
+                                .extract().as(UserResponse.class)
                 );
 
         step("Проверка полученного ответа на наличие определенных данных - Name и Job", () -> {
@@ -113,10 +113,10 @@ public class ReqresLombokTests extends TestBase {
     @Test
     void deleteUserAndStatusCodeTest() {
         step("Отправка  Post запроса", () ->
-                given(checkemeilrequestspecification)
+                given(requestSpecifications)
                         .delete("/user/2")
                         .then()
-                        .spec(checkresponsespecification204code)
+                        .spec(code204responSespecification)
         );
     }
 
@@ -126,18 +126,18 @@ public class ReqresLombokTests extends TestBase {
     @Owner("ZhizhkunAV")
     @Test
     void loginUserUnsuccessfulTest() {
-        LoginUnsuccessfulRequestLombok loginunsuccessfulrequestlombok = new LoginUnsuccessfulRequestLombok();
-        loginunsuccessfulrequestlombok.setEmail("peter@klaven");
+        LoginUnsuccessfulRequest loginUnsuccessfulRequest = new LoginUnsuccessfulRequest();
+        loginUnsuccessfulRequest.setEmail("peter@klaven");
 
-        LoginUnsuccessfulResponseLombok response =
+        LoginUnsuccessfulRespons response =
                 step("Отправка  Post запроса", () ->
-                        given(requestspecification)
-                                .body(loginunsuccessfulrequestlombok)
+                        given(requestSpecWithoutBody)
+                                .body(loginUnsuccessfulRequest)
                                 .when()
                                 .post("/login")
                                 .then()
-                                .spec(checkresponsespecification400code)
-                                .extract().as(LoginUnsuccessfulResponseLombok.class)
+                                .spec(code400ResponseSpecification)
+                                .extract().as(LoginUnsuccessfulRespons.class)
                 );
         step("Проверка полученного ответа на наличие определенного текста ошибки - Missing password", () -> {
                     assertThat(response.getError()).isEqualTo("Missing password");
