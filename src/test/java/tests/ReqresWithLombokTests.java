@@ -12,7 +12,7 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static scecifications.SpecForAllTests.*;
+import static specifications.SpecForAllTests.*;
 
 
 @DisplayName("Тесты по тестированию платформы https://reqres.in/")
