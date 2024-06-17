@@ -47,7 +47,7 @@ You can choose one of three test suites to run:
 
 ```mermaid
 flowchart LR
-    A[Test Suite] --> B[All tests] --> C[test]
+    A[Test Suite] --> B[All tests] --> C[reqres_test]
     A[Test Suite] --> D[Validation tests] -->E[account_test]
     A[Test Suite] -->H[Data tests] -->I[userData_test]
 ```
