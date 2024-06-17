@@ -26,7 +26,7 @@ sending results to the `Telegram channel` using a bot. Integration with `Allure 
 ---
 
 <a id="checking"></a>
-## :male_detective:: Реализованные проверки
+## :male_detective:: Implemented checks
 
 - ✓ The Get method is the presence of an email and the success of receiving the correct response code (code 200).
 - ✓ The Put - update method of an existing entity (name,job) and the success of obtaining the correct response code(code 200)
