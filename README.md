@@ -20,13 +20,13 @@
 |:--------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------:|
 | <a href="https://www.java.com/"><img src="media/logo/Java.svg" width="50" height="50"  alt="Java"/></a> | <a href="https://www.jetbrains.com/idea/"><img src="media/logo/Idea.svg" width="50" height="50"  alt="IDEA"/></a> | <a href="https://github.com/"><img src="media/logo/GitHub.svg" width="50" height="50"  alt="Github"/></a> | <a href="https://junit.org/junit5/"><img src="media/logo/JUnit5.svg" width="50" height="50"  alt="JUnit 5"/></a> | <a href="https://gradle.org/"><img src="media/logo/Gradle.svg" width="50" height="50"  alt="Gradle"/></a> | <a href="https://selenide.org/"><img src="media/logo/rest-assured.jpg" width="50" height="50"  alt="Selenide"/></a> | <a href="https://github.com/allure-framework"><img src="media/logo/Allure.svg" width="50" height="50"  alt="Allure"/></a> | <a href="https://www.jenkins.io/"><img src="media/logo/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a> | <a href="https://www.atlassian.com/software/jira/"><img src="media/logo/Jira.svg" width="50" height="50" alt="Java" title="Java"/></a> | <a href="https://web.telegram.org/"><img src="media/logo/Telegram.svg" width="50" height="50" alt="Telegram"/></a> | <a href="https://qameta.io/"><img src="media/logo/AllureTestOps.svg" width="50" height="50" alt="Allure_TO"/></a> |
 
-Autotests are written in `Java` using `JUnit 5`, `Selenide`, `Rest-Assured`. The project builder is `Gradle`. For remote launch, a task has been implemented in `Jenkins` with the generation of `Allure-report` and
-sending results to the `Telegram channel` using a bot. Integration with `Allure TestOps`.
+Автотесты написаны на языке `Java` с использованием `JUnit 5`, `Selenide`, `Rest-Assured`. Сборщик проекта - `Gradle`. Для удаленного запуска реализована задача в `Jenkins` с формированием `Allure-отчета` и
+отправкой результатов в `Telegram канал` при помощи бота. Так же осуществлена интеграция с `Allure TestOps` и `Jira`.
 
 ---
 
 <a id="checking"></a>
-## :male_detective:: Implemented checks
+## :male_detective:: Реализованные проверки
 
 - ✓ The Get method is the presence of an email and the success of receiving the correct response code (code 200).
 - ✓ The Put - update method of an existing entity (name,job) and the success of obtaining the correct response code(code 200)
@@ -54,11 +54,11 @@ flowchart LR
 ---
 
 <a id="jenkins"></a>
-## <img src="media/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Сборка в <a target="_blank" href="https://jenkins.autotests.cloud/job/021-Melnikov_A-Reqres_autotests/"> Jenkins </a>
+## <img src="media/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Сборка в <a target="_blank" href="https://jenkins.autotests.cloud/job/zhizhkunav_restapi/"> Jenkins </a>
 To start the build, go to the <code> sectionAssemble with the </code> parameters, select the necessary parameters and click the <code> buttonBuild </code>.
 
 <p align="center">
-<a href="https://https://jenkins.autotests.cloud/job/021-Melnikov_A-Reqres_autotests/"><img src="media/screens/jenkins_main.png" alt="Jenkins1"/></a>
+<a href="https://jenkins.autotests.cloud/job/zhizhkunav_restapi//"><img src="media/screens/jenkins_main.PNG" alt="Jenkins1"/></a>
 </p>
 After the assembly is completed, the Allure Report and Allure TestOps icons will appear in the Assembly History block next to the assembly number, clicking on which will open a page with the generated html report and test documentation, respectively.
 
