@@ -6,6 +6,7 @@ import io.qameta.allure.SeverityLevel;
 import models.lombok.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -20,7 +21,10 @@ public class ReqresWithLombokTests extends TestBase {
 
     @DisplayName("Метод Get - наличие email и успешность получения верного кода ответа(код 200)")
     @Severity(SeverityLevel.BLOCKER)
-    @Tag("alls")
+    @Tags({
+            @Tag("userData"),
+            @Tag("alls")
+    })
     @Owner("ZhizhkunAV")
     @Test
     void checkEmailAndStatusCodePositiveTest() {
@@ -44,7 +48,10 @@ public class ReqresWithLombokTests extends TestBase {
 
 
     @DisplayName("Метод Put - update уже имеющейся сущности(name,job) и успешность получения верного кода ответа(код 200)")
-    @Tag("alls")
+    @Tags({
+            @Tag("account"),
+            @Tag("alls")
+    })
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
     @Test
@@ -75,7 +82,10 @@ public class ReqresWithLombokTests extends TestBase {
     }
 
     @DisplayName("Метод Post - создание нового пользователя(name,job) и успешность получения верного кода ответа(код 200)")
-    @Tag("alls")
+    @Tags({
+            @Tag("account"),
+            @Tag("alls")
+    })
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
     @Test
@@ -97,7 +107,7 @@ public class ReqresWithLombokTests extends TestBase {
 
         step("Проверка полученного ответа на наличие определенных данных - Name и Job", () -> {
 
-//                    assertEquals("morpheus", response.getName()); второй вариант
+//                    assertEquals("morpheus", response.getName()); second varient
 //                    assertEquals("leader", response.getJob());
                     assertThat(response.getName()).isEqualTo("morpheus");
                     assertThat(response.getJob()).isEqualTo("leader");
@@ -107,7 +117,10 @@ public class ReqresWithLombokTests extends TestBase {
 
 
     @DisplayName("Метод Delete - удаление пользователя и успешность получения верного кода ответа(код 204)")
-    @Tag("alls")
+    @Tags({
+            @Tag("account"),
+            @Tag("alls")
+    })
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
     @Test
@@ -121,7 +134,10 @@ public class ReqresWithLombokTests extends TestBase {
     }
 
     @DisplayName("Метод Post - не валюдную авторизацию пользователя и успешность получения верного кода ответа(код 400)")
-    @Tag("alls")
+    @Tags({
+            @Tag("userData"),
+            @Tag("alls")
+    })
     @Severity(SeverityLevel.BLOCKER)
     @Owner("ZhizhkunAV")
     @Test

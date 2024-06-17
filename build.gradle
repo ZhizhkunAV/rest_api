@@ -60,6 +60,20 @@ tasks.withType(Test).configureEach {
 
 task reqres_test(type: Test) {
     useJUnitPlatform {
-        includeTags("alls")
+        includeTags("all")
     }
 }
+
+task account_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("account")
+    }
+}
+
+task userData_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("userData")
+    }
+}
+
+
