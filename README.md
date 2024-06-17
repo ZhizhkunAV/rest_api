@@ -105,14 +105,3 @@ After the build is completed, a special bot created in <code>Telegram</code> aut
 <img src="media/screens/telegram_main.png" alt="TestOps launch" width="500" height="400">
 </p>
 
-
-#### The content of the Telegram notification
-
-- :heavy_check_mark: Environment
-- :heavy_check_mark: Comment
-- :heavy_check_mark: Duration of the tests
-- :heavy_check_mark: Total number of scenarios
-- :heavy_check_mark: Percentage of passing tests
-- :heavy_check_mark: Link to the Allure report
-
----
