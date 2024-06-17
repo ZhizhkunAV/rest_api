@@ -69,13 +69,13 @@ After the assembly is completed, the Allure Report and Allure TestOps icons will
 ### 🖨️ The main page of the report
 
 <p align="center">
-<img src="media/screens/allure_auto_main.png" alt="Allure report" width="1000" height="400">
+<img src="media/screens/allure_auto_main.PNG" alt="Allure report" width="1000" height="400">
 </p>
 
 ### 📄 Test cases
 
 <p align="center">
-<img src="media/screens/allure_auto_2.png" alt="Test Case" width="1000" height="400">
+<img src="media/screens/allure_auto_2.PNG" alt="Test Case" width="1000" height="400">
 </p>
 
 ---
