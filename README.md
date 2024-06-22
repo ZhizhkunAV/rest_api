@@ -32,7 +32,7 @@ sending results to the `Telegram channel` using a bot. Integration with `Allure 
 - ✓ Put method - change user data
 - ✓ Post method - successful creation of a new user
 - ✓ Delete method - successful deletion of a user
-- ✓ Method Post - Check for unsuccessful user registration
+- ✓ Post method - check for unsuccessful user registration
 
 
 <a id="console"></a>
