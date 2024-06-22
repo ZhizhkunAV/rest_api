@@ -11,11 +11,8 @@ import static io.restassured.http.ContentType.JSON;
 
 
 public class SpecForAllTests {
-    public static RequestSpecification requestSpecifications = with()
-            .filter(withCustomTemplates())
-            .log().all();
 
-    public static RequestSpecification requestSpecWithoutBody = with()
+    public static RequestSpecification requestSpec = with()
             .filter(withCustomTemplates())
             .contentType(JSON)
             .log().all();

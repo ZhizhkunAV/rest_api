@@ -9,5 +9,4 @@ public class UserRequest {
     public String name;
     public String job;
     public String id;
-    public Date createdAt;
 }

@@ -17,20 +17,20 @@ import static specifications.SpecForAllTests.*;
 
 
 @DisplayName("Platform testing tests https://reqres.in/")
+@Owner("ZhizhkunAV")
 public class ReqresTests extends TestBase {
 
     @DisplayName("Get method - user's e-mail presence")
     @Severity(SeverityLevel.BLOCKER)
     @Tags({
             @Tag("userData"),
-            @Tag("alls")
+            @Tag("all")
     })
-    @Owner("ZhizhkunAV")
     @Test
     void checkEmailAndStatusCodePositiveTest() {
         UserModel response =
                 step("Sending a Get request", () ->
-                        given(requestSpecifications)
+                        given(requestSpec)
                                 .get("/users/2")
                                 .then()
                                 .spec(code200ResponseSpecification)
@@ -49,25 +49,24 @@ public class ReqresTests extends TestBase {
     @DisplayName("Put method - change user data")
     @Tags({
             @Tag("account"),
-            @Tag("alls")
+            @Tag("all")
     })
     @Severity(SeverityLevel.BLOCKER)
-    @Owner("ZhizhkunAV")
     @Test
     void successfulLoginTest() {
-        Udpade update = new Udpade();
+        Update update = new Update();
         update.setName("morpheus");
         update.setJob("zion resident");
 
-        Udpade response =
+        Update response =
                 step("Sending Put request", () ->
-                        given(requestSpecWithoutBody)
+                        given(requestSpec)
                                 .body(update)
                                 .when()
                                 .put("/user/2")
                                 .then()
                                 .spec(code200ResponseSpecification)
-                                .extract().as(Udpade.class)
+                                .extract().as(Update.class)
                 );
 
         step("Checking the received response for parameters - Name and Job", () -> {
@@ -80,10 +79,9 @@ public class ReqresTests extends TestBase {
     @DisplayName("Post method - successful creation of a new user")
     @Tags({
             @Tag("account"),
-            @Tag("alls")
+            @Tag("all")
     })
     @Severity(SeverityLevel.BLOCKER)
-    @Owner("ZhizhkunAV")
     @Test
     void successfulCreatedUserTest() {
         UserRequest userRequest = new UserRequest();
@@ -92,7 +90,7 @@ public class ReqresTests extends TestBase {
 
         UserResponse response =
                 step("Sending Post request", () ->
-                        given(requestSpecWithoutBody)
+                        given(requestSpec)
                                 .body(userRequest)
                                 .when()
                                 .post("/user")
@@ -112,14 +110,13 @@ public class ReqresTests extends TestBase {
     @DisplayName("Delete method - successful deletion of a user")
     @Tags({
             @Tag("account"),
-            @Tag("alls")
+            @Tag("all")
     })
     @Severity(SeverityLevel.BLOCKER)
-    @Owner("ZhizhkunAV")
     @Test
     void deleteUserAndStatusCodeTest() {
         step("Sending Post request", () ->
-                given(requestSpecifications)
+                given(requestSpec)
                         .delete("/user/2")
                         .then()
                         .spec(code204responSespecification)
@@ -129,10 +126,9 @@ public class ReqresTests extends TestBase {
     @DisplayName("Method Post - Check for unsuccessful user registration")
     @Tags({
             @Tag("userData"),
-            @Tag("alls")
+            @Tag("all")
     })
     @Severity(SeverityLevel.BLOCKER)
-    @Owner("ZhizhkunAV")
     @Test
     void loginUserUnsuccessfulTest() {
         LoginUnsuccessfulRequest loginUnsuccessfulRequest = new LoginUnsuccessfulRequest();
@@ -140,7 +136,7 @@ public class ReqresTests extends TestBase {
 
         LoginUnsuccessfulRespons response =
                 step("Sending Post request", () ->
-                        given(requestSpecWithoutBody)
+                        given(requestSpec)
                                 .body(loginUnsuccessfulRequest)
                                 .when()
                                 .post("/login")
