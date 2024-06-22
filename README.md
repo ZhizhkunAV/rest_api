@@ -28,11 +28,11 @@ sending results to the `Telegram channel` using a bot. Integration with `Allure 
 <a id="checking"></a>
 ## :male_detective:: Implemented checks
 
-- ✓ The Get method is the presence of an email and the success of receiving the correct response code (code 200).
-- ✓ The Put - update method of an existing entity (name,job) and the success of obtaining the correct response code(code 200)
-- ✓ The Post method is the creation of a new user (name,job) and the success of receiving the correct response code (code 200)
-- ✓ Delete method - deleting the user and the success of getting the correct response code (code 204)
-- ✓ The Post method is not valid user authorization and the success of receiving the correct response code (code 400)
+- ✓ Get method - user's e-mail presence.
+- ✓ Put method - change user data
+- ✓ Post method - successful creation of a new user
+- ✓ Delete method - successful deletion of a user
+- ✓ Method Post - Check for unsuccessful user registration
 
 
 <a id="console"></a>
@@ -80,8 +80,11 @@ After the assembly is completed, the Allure Report and Allure TestOps icons will
 
 ---
 <a id="allure"></a>
-## <img alt="Allure_TO" height="25" src="media/logo/AllureTestOps.svg" width="25"/> </a>Integration with<a target="_blank" href="https://allure.autotests.cloud/launch/40002/tree/648798?search=W3siaWQiOiJzdGF0dXMiLCJ0eXBlIjoidGVzdFN0YXR1c0FycmF5IiwidmFsdWUiOlsicGFzc2VkIl19XQ%3D%3D&treeId=0">Allure TestOps</a>
+## <img alt="Allure_TO" height="25" src="media/logo/AllureTestOps.svg" width="25"/> </a>Integration with<a target="_blank" href="https://allure.autotests.cloud/launch/40002/tree/648798?search=W3siaWQiOiJzdGF0dXMiLCJ0eXBlIjoidGVzdFN0YXR1c0FycmF5IiwidmFsdWUiOlsicGFzc2VkIl19XQ%3D%3D&treeId=0"> Allure TestOps</a>
 The statistics of the number of tests are visible on the *Dashboard* in <code>Allure TestOps</code>. New tests, as well as the results of the run, are received by integration every time the build is started.
+<p align="center">
+<img src="media/screens/ATOps.PNG" alt="ATOps" width="1000" height="400">
+</p>
 ## 🖨️ The main page of the report
 
 ---
