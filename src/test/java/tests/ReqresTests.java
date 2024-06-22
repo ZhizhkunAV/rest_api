@@ -1,102 +1,156 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import models.lombok.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
+import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
-import static org.hamcrest.Matchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static specifications.SpecForAllTests.*;
 
-@DisplayName("Тесты по тестированию платформы https://reqres.in/")
-public class ReqresTests {
 
-    @DisplayName("Метод Get - тест на наличие email и успешность получения верного кода ответа(код 200)")
+@DisplayName("Platform testing tests https://reqres.in/")
+public class ReqresTests extends TestBase {
+
+    @DisplayName("Get method - user's e-mail presence")
+    @Severity(SeverityLevel.BLOCKER)
+    @Tags({
+            @Tag("userData"),
+            @Tag("alls")
+    })
+    @Owner("ZhizhkunAV")
     @Test
     void checkEmailAndStatusCodePositiveTest() {
-        given()
-                .log().uri()
-                .get("https://reqres.in/api/users/2")
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(200)
-                .body("data.email", is("janet.weaver@reqres.in"));
+        UserModel response =
+                step("Sending a Get request", () ->
+                        given(requestSpecifications)
+                                .get("/users/2")
+                                .then()
+                                .spec(code200ResponseSpecification)
+                                .extract().as(UserModel.class)
+                );
+
+        step("Checking the response received for certain data", () -> {
+                    assertThat(response.getData().getEmail()).isEqualTo("janet.weaver@reqres.in");
+                    assertThat(response.getData().getFirstName()).isEqualTo("Janet");
+                    assertThat(response.getData().getLastName()).isEqualTo("Weaver");
+                }
+        );
     }
 
 
-    @DisplayName("Метод Put - тест на update уже имеющейся сущности(name,job) и успешность получения верного кода ответа(код 200)")
+    @DisplayName("Put method - change user data")
+    @Tags({
+            @Tag("account"),
+            @Tag("alls")
+    })
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
     @Test
     void successfulLoginTest() {
-        String putData = "{\"name\": \"morpheus\", \"job\": \"zion resident\"}";
+        Udpade update = new Udpade();
+        update.setName("morpheus");
+        update.setJob("zion resident");
 
-        given()
-                .body(putData)
-                .contentType(JSON)
-                .log().uri()
+        Udpade response =
+                step("Sending Put request", () ->
+                        given(requestSpecWithoutBody)
+                                .body(update)
+                                .when()
+                                .put("/user/2")
+                                .then()
+                                .spec(code200ResponseSpecification)
+                                .extract().as(Udpade.class)
+                );
 
-                .when()
-                .put("https://reqres.in/api/users/2")
-
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(200)
-                .body("name", is("morpheus"))
-                .body("job", is("zion resident"));
+        step("Checking the received response for parameters - Name and Job", () -> {
+                    assertEquals("morpheus", response.getName());
+                    assertThat(response.getJob()).isEqualTo("zion resident");
+                }
+        );
     }
 
-    @DisplayName("Метод Post - тест на создание нового пользователя(name,job) и успешность получения верного кода ответа(код 200)")
+    @DisplayName("Post method - successful creation of a new user")
+    @Tags({
+            @Tag("account"),
+            @Tag("alls")
+    })
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
     @Test
     void successfulCreatedUserTest() {
-        String postData = "{\"name\": \"morpheus\", \"job\": \"leader\"}";
+        UserRequest userRequest = new UserRequest();
+        userRequest.setName("morpheus");
+        userRequest.setJob("leader");
 
-        given()
-                .body(postData)
-                .contentType(JSON)
-                .log().uri()
+        UserResponse response =
+                step("Sending Post request", () ->
+                        given(requestSpecWithoutBody)
+                                .body(userRequest)
+                                .when()
+                                .post("/user")
+                                .then()
+                                .spec(code201responseSpecification)
+                                .extract().as(UserResponse.class)
+                );
 
-                .when()
-                .post("https://reqres.in/api/users")
-
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(201)
-                .body("name", is("morpheus"))
-                .body("job", is("leader"))
-        ;
+        step("Checking the received response for the presence of Name and Job parameters", () -> {
+                    assertThat(response.getName()).isEqualTo("morpheus");
+                    assertThat(response.getJob()).isEqualTo("leader");
+                }
+        );
     }
 
-    @DisplayName("Метод Delete - тест на удаление пользователя и успешность получения верного кода ответа(код 204)")
+
+    @DisplayName("Delete method - successful deletion of a user")
+    @Tags({
+            @Tag("account"),
+            @Tag("alls")
+    })
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
     @Test
     void deleteUserAndStatusCodeTest() {
-        given()
-                .log().uri()
-                .delete("https://reqres.in/api/users/2")
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(204);
+        step("Sending Post request", () ->
+                given(requestSpecifications)
+                        .delete("/user/2")
+                        .then()
+                        .spec(code204responSespecification)
+        );
     }
 
-    @DisplayName("Метод Post - тест на не валюдную авторизацию пользователя и успешность получения верного кода ответа(код 400)")
+    @DisplayName("Method Post - Check for unsuccessful user registration")
+    @Tags({
+            @Tag("userData"),
+            @Tag("alls")
+    })
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("ZhizhkunAV")
     @Test
     void loginUserUnsuccessfulTest() {
-        String postLoginData = "{\"email\": \"peter@klaven\"}";
+        LoginUnsuccessfulRequest loginUnsuccessfulRequest = new LoginUnsuccessfulRequest();
+        loginUnsuccessfulRequest.setEmail("peter@klaven");
 
-        given()
-                .body(postLoginData)
-                .contentType(JSON)
-                .log().uri()
-
-                .when()
-                .post("https://reqres.in/api/login")
-
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(400)
-                .body("error", is("Missing password"));
+        LoginUnsuccessfulRespons response =
+                step("Sending Post request", () ->
+                        given(requestSpecWithoutBody)
+                                .body(loginUnsuccessfulRequest)
+                                .when()
+                                .post("/login")
+                                .then()
+                                .spec(code400ResponseSpecification)
+                                .extract().as(LoginUnsuccessfulRespons.class)
+                );
+        step("Checking the received response for error text - Missing password", () -> {
+                    assertThat(response.getError()).isEqualTo("Missing password");
+                }
+        );
     }
 }
-
