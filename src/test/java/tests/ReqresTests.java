@@ -123,7 +123,7 @@ public class ReqresTests extends TestBase {
         );
     }
 
-    @DisplayName("Post method - Check for unsuccessful user registration")
+    @DisplayName("Post method - check for unsuccessful user registration")
     @Tags({
             @Tag("userData"),
             @Tag("all")
