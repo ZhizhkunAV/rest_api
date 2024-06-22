@@ -28,11 +28,11 @@ sending results to the `Telegram channel` using a bot. Integration with `Allure 
 <a id="checking"></a>
 ## :male_detective:: Implemented checks
 
-- ✓ The Get method is the presence of an email and the success of receiving the correct response code (code 200).
-- ✓ The Put - update method of an existing entity (name,job) and the success of obtaining the correct response code(code 200)
-- ✓ The Post method is the creation of a new user (name,job) and the success of receiving the correct response code (code 200)
-- ✓ Delete method - deleting the user and the success of getting the correct response code (code 204)
-- ✓ The Post method is not valid user authorization and the success of receiving the correct response code (code 400)
+- ✓ Get method - user's e-mail presence.
+- ✓ Put method - change user data
+- ✓ Post method - successful creation of a new user
+- ✓ Delete method - successful deletion of a user
+- ✓ Method Post - Check for unsuccessful user registration
 
 
 <a id="console"></a>
