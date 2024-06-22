@@ -64,7 +64,7 @@ After the assembly is completed, the Allure Report and Allure TestOps icons will
 
 ---
 <a id="allureReport"></a>
-## <img src="media/logo/Allure.svg" width="25" height="25"/> [Allure](https://jenkins.autotests.cloud/job/Melnikov_A-Beeline_autotests/61/allure/) report
+## <img src="media/logo/Allure.svg" width="25" height="25"/> [Allure](https://jenkins.autotests.cloud/job/zhizhkunav_restapi/allure/) report
 
 ### 🖨️ The main page of the report
 
