@@ -54,7 +54,7 @@ flowchart LR
 ---
 
 <a id="jenkins"></a>
-## <img src="media/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Сборка в <a target="_blank" href="https://jenkins.autotests.cloud/job/zhizhkunav_restapi/"> Jenkins </a>
+## <img src="media/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Running tests in <a target="_blank" href="https://jenkins.autotests.cloud/job/zhizhkunav_restapi/"> Jenkins</a>
 To start the build, go to the <code> sectionAssemble with the </code> parameters, select the necessary parameters and click the <code> buttonBuild </code>.
 
 <p align="center">
