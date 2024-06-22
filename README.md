@@ -80,7 +80,7 @@ After the assembly is completed, the Allure Report and Allure TestOps icons will
 
 ---
 <a id="allure"></a>
-## <img alt="Allure_TO" height="25" src="media/logo/AllureTestOps.svg" width="25"/> </a>Integration with<a target="_blank" href="https://allure.autotests.cloud/launch/40002/tree/648798?search=W3siaWQiOiJzdGF0dXMiLCJ0eXBlIjoidGVzdFN0YXR1c0FycmF5IiwidmFsdWUiOlsicGFzc2VkIl19XQ%3D%3D&treeId=0">Allure TestOps</a>
+## <img alt="Allure_TO" height="25" src="media/logo/AllureTestOps.svg" width="25"/> </a>Integration with<a target="_blank" href="https://allure.autotests.cloud/launch/40002/tree/648798?search=W3siaWQiOiJzdGF0dXMiLCJ0eXBlIjoidGVzdFN0YXR1c0FycmF5IiwidmFsdWUiOlsicGFzc2VkIl19XQ%3D%3D&treeId=0"> Allure TestOps</a>
 The statistics of the number of tests are visible on the *Dashboard* in <code>Allure TestOps</code>. New tests, as well as the results of the run, are received by integration every time the build is started.
 <p align="center">
 <img src="media/screens/ATOps.PNG" alt="ATOps" width="1000" height="400">
